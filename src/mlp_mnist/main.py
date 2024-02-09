@@ -1,6 +1,8 @@
 from sklearn.datasets import fetch_openml
 from sklearn.model_selection import train_test_split
 
+from mlp_mnist.util import print_example
+
 
 def load_data():
     mnist = fetch_openml("mnist_784")
@@ -18,6 +20,7 @@ def main():
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, train_size=60000, random_state=42
     )
+    print_example(X_train.iloc[0, :].values)
     print("first 100 training features:", X_train[0:100])
     print("first 100 training labels:", y_train[0:100])
 
